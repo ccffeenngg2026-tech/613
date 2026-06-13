@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+ 
+ 
+   <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1659613382122324');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1659613382122324&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+ 
+ <!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+  ttq.load('D3BSR13C77UAH4NB1EB0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+  <script>
+  // 获取 Cookie 或 LocalStorage 中的链接
+  function getSavedLink(name) {
+      // 先尝试从 Cookie 获取
+      let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) return match[2];
+      
+      // 如果 Cookie 没有，尝试从 LocalStorage 获取 (双重保障)
+      try {
+          return localStorage.getItem(name);
+      } catch(e) {
+          return null;
+      }
+  }
+
+  // 设置 Cookie 和 LocalStorage
+  function setSavedLink(name, value, days) {
+      let d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      
+      try {
+          localStorage.setItem(name, value);
+      } catch(e) {}
+  }
+
+  function k2() {
+      // 定义多个链接
+      const links = [
+         'https://wa.me/message/3RWPFVA4GRHUO1',
+         'https://wa.me/message/HMX6DT4DK7S5A1',
+      ];
+
+      // 尝试获取用户之前分配的链接
+      let targetLink = getSavedLink('user_wa_link');
+
+      // 如果没有记录，或者记录的链接不在当前列表中（防止旧链接失效），则重新随机分配
+      if (!targetLink || !links.includes(targetLink)) {
+          const randomIndex = Math.floor(Math.random() * links.length);
+          targetLink = links[randomIndex];
+          // 将分配的链接保存30天
+          setSavedLink('user_wa_link', targetLink, 30);
+      }
+
+      // 追踪事件 (加入 typeof 判断防止未加载时报错)
+      if (typeof ttq !== 'undefined') {
+          ttq.track('ClickButton');
+          ttq.track('Contact');
+          ttq.track('AddToCart');
+          ttq.track('CompleteRegistration');
+      }
+      
+      if (typeof fbq !== 'undefined') {
+          fbq('track', 'AddToCart');
+          fbq('track', 'Contact');
+          fbq('track', 'Purchase');
+      }
+
+      // 新窗口打开目标链接
+      window.open(targetLink, '_blank');
+  }
+</script>
+
+
+ 
+    
+     
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury - Premium Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            gold: '#D4AF37',
+                            dark: '#0A0A0A',
+                            gray: '#1A1A1A'
+                        }
+                    },
+                    fontFamily: {
+                        luxury: ['Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateX(100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .breathe {
+            animation: breathe 1s ease-in-out infinite;
+        }
+        .fade-slide {
+            animation: fadeSlide 0.8s ease-out;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .luxury-shadow {
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+        }
+        #lightbox {
+            display: none;
+        }
+        #lightbox.active {
+            display: flex;
+        }
+        
+        /* 优化：在页面 CSS 中自定义 .mt-2 的 margin-top 为 0.9rem */
+        .mt-2 {
+            margin-top: 0.9rem !important;
+        }
+    </style>
+</head>
+<body class="bg-luxury-dark text-white overflow-x-hidden">
+    <div class="hero-bg min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="container mx-auto px-4 py-2 mt-4">
+            <div class="text-center">
+                <h1 class="text-2xl md:text-3xl font-luxury font-bold gradient-text mb-1">
+                   Luxury shoes, bags, watches
+                </h1>
+                <p class="text-luxury-gold text-base md:text-lg font-light">
+                    Great Prices, All Here
+                </p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 py-2">
+            <!-- Hero: 1-col on mobile (image below title), 2-col on desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4 items-center max-w-4xl mx-auto mt-2 md:mt-0">
+                
+                <!-- Left Side - Hero Image -->
+                <div class="text-center">
+                    <div class="relative inline-block">
+                        <img src="1.jpg?v=d" 
+                             alt="Luxury Watch Collection" 
+                             class="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30 mx-auto"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23000%22%3ELuxury%3C/text%3E%3C/svg%3E'">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-luxury-gold/20 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Features -->
+                <div class="space-y-4 md:space-y-5 fade-slide px-2 md:px-0">
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-gem text-luxury-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-semibold text-white leading-tight">Premium Quality, Affordable Price</h3>
+                            <p class="text-sm text-gray-400 mt-0.5 leading-tight">Don't spend too much pursuing high taste</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-gift text-luxury-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-semibold text-white leading-tight">Best Prices & Original Gift Boxes</h3>
+                            <p class="text-sm text-gray-400 mt-0.5 leading-tight">Best prices, original gift boxes</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-search text-luxury-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-semibold text-white leading-tight">Complete Collection</h3>
+                            <p class="text-sm text-gray-400 mt-0.5 leading-tight">Here you can find anything you need</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-luxury-gold text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base md:text-lg font-semibold text-white leading-tight">Secure & Private</h3>
+                            <p class="text-sm text-gray-400 mt-0.5 leading-tight">Safe purchase, privacy protection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watch Gallery Carousel -->
+            <div class="mt-8">
+                <h2 class="text-lg md:text-xl font-luxury font-bold text-center gradient-text mb-4">
+                   ↓↓↓Please click on WhatsApp to contact us.↓↓↓
+                </h2>
+                
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="carousel-container overflow-hidden">
+                        <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
+                            <!-- Images changed to aspect-square and added onclick for single image lightbox -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="2.jpg?v=d1" alt="Watch 1" onclick="openSingleImage(this.src)" class="w-full aspect-square object-cover rounded-lg luxury-shadow cursor-pointer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="3.jpg?v=d1" alt="Watch 2" onclick="openSingleImage(this.src)" class="w-full aspect-square object-cover rounded-lg luxury-shadow cursor-pointer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="4.jpg?v=d1" alt="Watch 3" onclick="openSingleImage(this.src)" class="w-full aspect-square object-cover rounded-lg luxury-shadow cursor-pointer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="5.jpg?v=d1" alt="Watch 4" onclick="openSingleImage(this.src)" class="w-full aspect-square object-cover rounded-lg luxury-shadow cursor-pointer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="6.jpg?v=d1" alt="Watch 5" onclick="openSingleImage(this.src)" class="w-full aspect-square object-cover rounded-lg luxury-shadow cursor-pointer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Controls (背景颜色调浅) -->
+                    <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-luxury-gold/40 hover:bg-luxury-gold/80 text-black p-3 md:p-4 rounded-full transition-all duration-300 z-10 shadow-lg">
+                        <i class="fas fa-chevron-left text-lg md:text-xl"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-luxury-gold/40 hover:bg-luxury-gold/80 text-black p-3 md:p-4 rounded-full transition-all duration-300 z-10 shadow-lg">
+                        <i class="fas fa-chevron-right text-lg md:text-xl"></i>
+                    </button>
+                    
+                    <!-- Carousel Indicators (增加到5个) -->
+                    <div class="flex justify-center mt-3 space-x-1" id="indicators">
+                        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-luxury-gold transition-all duration-300 indicator active"></button>
+                        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
+                        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
+                        <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
+                        <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Button (新增) -->
+            <div class="mt-8 mb-6 text-center">
+                <button onclick="k2()" class="bg-[#8B4513] hover:bg-[#A0522D] text-white font-bold py-3 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span class="text-lg">Contact Us</span>
+                </button>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="mt-2 mb-24">
+                <h2 class="text-lg md:text-xl font-luxury font-bold text-center gradient-text mb-1">
+                    Customer Reviews
+                </h2>
+                <p class="text-center text-gray-400 text-sm mb-4">What our customers say</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(0)">
+                        <img src="b1.jpg?v=d" alt="Customer Review 1" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 1%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(1)">
+                        <img src="b2.jpg?v=d" alt="Customer Review 2" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 2%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(2)">
+                        <img src="b3.jpg?V=d" alt="Customer Review 3" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 3%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(3)">
+                        <img src="b4.jpg?v=d" alt="Customer Review 4" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 4%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(4)">
+                        <img src="b5.jpg?v=d" alt="Customer Review 5" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 5%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(5)">
+                        <img src="pic/b6.jpg?v=d" alt="Customer Review 6" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 6%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(6)">
+                        <img src="b7.jpg?v=d" alt="Customer Review 7" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 7%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(7)">
+                        <img src="b8.jpg?V=d" alt="Customer Review 8" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 8%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(8)">
+                        <img src="b9.jpg?v=d" alt="Customer Review 9" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 9%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(9)">
+                        <img src="b10.jpg?v=d" alt="Customer Review 10" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 10%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(10)">
+                        <img src="b11.jpg?v=d" alt="Customer Review 11" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 11%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="review-img-wrap relative group cursor-pointer overflow-hidden rounded-lg luxury-shadow border border-luxury-gold/10 hover:border-luxury-gold/40 transition-all duration-300" onclick="openLightbox(11)">
+                        <img src="b12.jpg?V=d" alt="Customer Review 12" class="w-full h-36 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23D4AF37%22%3EReview 12%3C/text%3E%3C/svg%3E'">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Lightbox Gallery (支持左右滑动和点击切换) -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative inline-block max-w-xl w-full flex items-center justify-center" onclick="event.stopPropagation()">
+            <!-- 关闭按钮 (固定在图片右上角) -->
+            <button onclick="closeLightbox()"
+                    class="absolute -top-3 -right-3 z-20 w-8 h-8 bg-luxury-gold text-black rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-400 transition-all duration-200">
+                <i class="fas fa-times text-sm font-bold"></i>
+            </button>
+            
+            <!-- 左右切换按钮 (桌面端可见/方便点击) -->
+            <button onclick="prevLightboxImage()" class="lightbox-nav absolute -left-4 md:-left-12 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-luxury-gold hover:text-black transition-all">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="nextLightboxImage()" class="lightbox-nav absolute -right-4 md:-right-12 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-luxury-gold hover:text-black transition-all">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- 图片容器 -->
+            <img id="lightboxImg" src="" alt="Review enlarged"
+                 class="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl border border-luxury-gold/20 block select-none">
+        </div>
+        <p class="lightbox-nav absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-500 text-xs text-center w-full">Swipe left/right to navigate • Tap outside to close</p>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+        <div class="relative">
+            <a href="javascript:void(0)" 
+               onclick="k2()"
+               class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 whitespace-nowrap">
+                <i class="fab fa-whatsapp text-xl"></i>
+                <span class="font-medium" style="font-size: 1.5rem;">Contact us now</span>
+            </a>
+            <!-- Message notification badge -->
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg animate-pulse" id="messageCount">
+                1
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messageCountElement = document.getElementById('messageCount');
+        setTimeout(() => {
+            if (messageCountElement) {
+                messageCountElement.textContent = '2';
+            }
+        }, 3000);
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // --- Main Carousel Logic ---
+        let currentSlide = 0;
+        const totalSlides = 5; // 修改为5张图
+        const carouselTrack = document.getElementById('carouselTrack');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.remove('bg-gray-600');
+                    indicator.classList.add('bg-luxury-gold');
+                } else {
+                    indicator.classList.remove('bg-luxury-gold');
+                    indicator.classList.add('bg-gray-600');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 4000);
+
+        // Main Carousel Swipe Support
+        let startX = 0, endX = 0;
+        carouselTrack.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+        carouselTrack.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) nextSlide();
+            else if (endX - startX > 50) prevSlide();
+        });
+
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        // --- Lightbox Gallery Logic ---
+        // 修改为正确的评价图路径数组 (b1-b12)
+        const reviewImages = [
+            'b1.jpg?v=d', 'b2.jpg?v=d', 'b3.jpg?v=d', 'b4.jpg?v=d',
+            'b5.jpg?v=d', 'b6.jpg?v=d', 'b7.jpg?v=d', 'b8.jpg?v=d',
+            'b9.jpg?v=d', 'b10.jpg?v=d', 'b11.jpg?v=d', 'b12.jpg?v=d'
+        ];
+        let currentLightboxIndex = 0;
+        let isSingleImageMode = false;
+
+        function openLightbox(index) {
+            isSingleImageMode = false;
+            currentLightboxIndex = index;
+            updateLightboxImage();
+            
+            // Show navigation elements for gallery
+            document.querySelectorAll('.lightbox-nav').forEach(el => {
+                el.style.display = '';
+            });
+            
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 顶部的轮播图依然使用单图放大逻辑
+        function openSingleImage(src) {
+            isSingleImageMode = true;
+            document.getElementById('lightboxImg').src = src;
+            
+            // Hide navigation elements for single image
+            document.querySelectorAll('.lightbox-nav').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightboxImage() {
+            document.getElementById('lightboxImg').src = reviewImages[currentLightboxIndex];
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextLightboxImage() {
+            if (isSingleImageMode) return;
+            currentLightboxIndex = (currentLightboxIndex + 1) % reviewImages.length;
+            updateLightboxImage();
+        }
+
+        function prevLightboxImage() {
+            if (isSingleImageMode) return;
+            currentLightboxIndex = (currentLightboxIndex - 1 + reviewImages.length) % reviewImages.length;
+            updateLightboxImage();
+        }
+
+        // Lightbox Swipe Support
+        const lightboxContainer = document.getElementById('lightbox');
+        let lbStartX = 0, lbEndX = 0;
+        lightboxContainer.addEventListener('touchstart', (e) => { 
+            if (isSingleImageMode) return;
+            lbStartX = e.touches[0].clientX; 
+        });
+        lightboxContainer.addEventListener('touchend', (e) => {
+            if (isSingleImageMode) return;
+            lbEndX = e.changedTouches[0].clientX;
+            if (lbStartX - lbEndX > 50) nextLightboxImage();
+            else if (lbEndX - lbStartX > 50) prevLightboxImage();
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (!isSingleImageMode && e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('active')) {
+                nextLightboxImage();
+            } else if (!isSingleImageMode && e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('active')) {
+                prevLightboxImage();
+            }
+        });
+    </script>
+</body>
+</html>
